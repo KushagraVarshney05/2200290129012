@@ -42,7 +42,7 @@ const AllProducts = () => {
                   {product.availability === "yes" ? "Available" : "Out of stock"}
                 </p>
                 <Link
-                  to={`/product/${index}`}
+                  to={`/product/${product.id_products}`}
                   className="block text-center bg-blue-500 text-white px-4 py-2 rounded-md mt-4 hover:bg-blue-600"
                 >
                   View Product

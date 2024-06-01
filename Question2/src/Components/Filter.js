@@ -47,60 +47,65 @@ const TopProductsComponent = () => {
 
   return (
     <div className="max-w-4xl mx-auto py-8">
-      <h1 className="text-3xl font-semibold mb-4">Top Products</h1>
+      <h1 className="text-3xl font-semibold mb-4 text-gray-800">Explore Top Products</h1>
       <form onSubmit={handleSubmit} className="grid grid-cols-1 md:grid-cols-2 gap-6">
         <div>
-          <label htmlFor="companyId" className="block mb-1">Company ID:</label>
+          <label htmlFor="companyId" className="block mb-1 text-gray-700">Enter Company ID:</label>
           <input
             type="text"
             id="companyId"
             name="companyId"
             value={formData.companyId}
             onChange={handleChange}
+            placeholder="Company ID"
             className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:border-blue-500"
           />
         </div>
         <div>
-          <label htmlFor="categoryId" className="block mb-1">Category ID:</label>
+          <label htmlFor="categoryId" className="block mb-1 text-gray-700">Enter Category ID:</label>
           <input
             type="text"
             id="categoryId"
             name="categoryId"
             value={formData.categoryId}
             onChange={handleChange}
+            placeholder="Category ID"
             className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:border-blue-500"
           />
         </div>
         <div>
-          <label htmlFor="minPrice" className="block mb-1">Min Price:</label>
+          <label htmlFor="minPrice" className="block mb-1 text-gray-700">Minimum Price:</label>
           <input
             type="text"
             id="minPrice"
             name="minPrice"
             value={formData.minPrice}
             onChange={handleChange}
+            placeholder="Minimum Price"
             className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:border-blue-500"
           />
         </div>
         <div>
-          <label htmlFor="maxPrice" className="block mb-1">Max Price:</label>
+          <label htmlFor="maxPrice" className="block mb-1 text-gray-700">Maximum Price:</label>
           <input
             type="text"
             id="maxPrice"
             name="maxPrice"
             value={formData.maxPrice}
             onChange={handleChange}
+            placeholder="Maximum Price"
             className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:border-blue-500"
           />
         </div>
         <div>
-          <label htmlFor="limit" className="block mb-1">Limit:</label>
+          <label htmlFor="limit" className="block mb-1 text-gray-700">Limit:</label>
           <input
             type="text"
             id="limit"
             name="limit"
             value={formData.limit}
             onChange={handleChange}
+            placeholder="Limit"
             className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:border-blue-500"
           />
         </div>
@@ -113,22 +118,22 @@ const TopProductsComponent = () => {
           </button>
         </div>
       </form>
-      {loading && <div className="mt-8 text-center">Loading...</div>}
+      {loading && <div className="mt-8 text-center text-gray-800">Loading...</div>}
       {!loading && (
         <div className="mt-8">
           <ul className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
             {products.map((product) => (
-              <li key={product.id} className="border rounded-lg p-4">
-                <p className="text-lg font-semibold">Title: {product.title}</p>
-                <p>Rating: {product.rating}</p>
-                <p>Price: {product.price}</p>
-                <p>Categories: {product.categories}</p>
+              <li key={product.id} className="border rounded-lg p-4 bg-gray-100">
+                <p className="text-lg font-semibold text-gray-800">Title: {product.title}</p>
+                <p className="text-gray-700">Rating: {product.rating}</p>
+                <p className="text-gray-700">Price: {product.price}</p>
+                <p className="text-gray-700">Categories: {product.categories}</p>
               </li>
             ))}
           </ul>
           {pagination && (
             <div className="mt-8 flex justify-between">
-              <p>Total Records: {pagination.total_records}</p>
+              <p className="text-gray-700">Total Records: {pagination.total_records}</p>
               <div className="space-x-4">
                 {pagination.prev_page && (
                   <button
