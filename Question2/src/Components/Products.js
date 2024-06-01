@@ -68,6 +68,12 @@ const AllProducts = () => {
         >
           Next
         </button>
+        <Link
+          to="/top-products"
+          className="bg-blue-500 text-white px-4 py-2 rounded-lg ml-4 hover:bg-blue-600"
+        >
+          Filter Products
+        </Link>
       </div>
     </div>
   );
