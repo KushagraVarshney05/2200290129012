@@ -32,7 +32,7 @@ Question 1
     http://localhost:5000
     ```
 
-![Screenshot](Question1/img/Screenshot from 2024-06-01 12-10-28.png)
+![Screenshot](./Question1/img/Screenshot from 2024-06-01 12-10-28.png)
 ![Screenshot](Question1/img/Screenshot from 2024-06-01 12-10-49.png)
 ![Screenshot](Question1/img/Screenshot from 2024-06-01 12-11-09.png)
 ![Screenshot](Question1/img/Screenshot from 2024-06-01 12-36-01.png)
