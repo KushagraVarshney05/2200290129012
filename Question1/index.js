@@ -11,7 +11,12 @@ app.use(express.json());
 
 const db = require('./config/db');
 const { getCompany, insertCompany } = require('./controller/company');
-const { getProducts, insertProduct, getTopNProducts } = require('./controller/product');
+const { getProducts,
+    insertProduct,
+    getTopNProducts,
+    getProductsByCategory,
+    getTopProducts,
+    getProductsByPriceRange  } = require('./controller/product');
 
 app.get('/', (req, res) => {
     res.send('Hello World!')
@@ -21,5 +26,6 @@ app.listen(port, () => {
     }
     );
 app.get('/company', getCompany).post('/company', insertCompany);
-app.get('/products', getProducts).post('/products', insertProduct).get('/products/topN', getTopNProducts);
+app.get('/products', getProducts).post('/products', insertProduct);
+app.get('/products/topN', getTopNProducts).get('/products/category', getProductsByCategory).get('/products/top', getTopProducts).get('/products/price', getProductsByPriceRange);
 
