@@ -33,8 +33,8 @@ Question 1
     ```
 
 ![Screenshot](./Question1/img/img1.png)
-![Screenshot](./Question1/img/Screenshot from 2024-06-01 12-10-49.png)
-![Screenshot](./Question1/img/Screenshot from 2024-06-01 12-11-09.png)
-![Screenshot](./Question1/img/Screenshot from 2024-06-01 12-36-01.png)
+![Screenshot](./Question1/img/img2.png)
+![Screenshot](./Question1/img/img3.png)
+![Screenshot](./Question1/img/img4.png)
 
 
