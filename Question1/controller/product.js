@@ -1,15 +1,46 @@
 const db= require('../config/db');
-const getProducts = (req, res) => {
-    const query = 'SELECT * FROM products';
-    db.query(query, (err
-        , result) => {
-        if (err) {
-            res.status(400).send('Error fetching products');
-            return;
-        }
-        res.status(200).send(result);
+const getProductDetails = async (req, res) => {
+  const { id } = req.params;
+
+  if (!id) {
+    return res.status(400).send('Missing product ID');
+  }
+
+  const query = `
+    SELECT p.*,c.id_category,c.name AS category_name
+    FROM products p
+    JOIN category c ON p.category_id = c.id_category
+    WHERE p.id_products = ?;
+  `;
+
+
+  db.query(query, [id], (err, results) => {
+    if (err) {
+      return res.status(500).send('Database query failed');
     }
-    );
+
+    if (results.length === 0) {
+      return res.status(404).send('Product not found');
+    }
+
+    res.json(results[0]);
+  });
+};
+const getProducts = async(req, res) => {
+  try {
+    const { page } = req.query;
+    const currentPage = parseInt(page, 10) || 1;
+    const limit = 10;
+    const offset = (currentPage - 1) * limit;
+
+    const [data] = await db
+      .promise()
+      .query("SELECT * FROM products LIMIT ? OFFSET ?", [limit, offset]);
+
+    res.status(200).json({ message: "Products retrieved", data: data });
+  } catch (error) {
+    res.status(400).json({ error: error.message });
+  }
 }
 
 const getTopProducts=  async(req, res) => {
@@ -79,6 +110,7 @@ const countQuery = `
 module.exports = {
     getProducts,
     
-    getTopProducts
+    getTopProducts,
+    getProductDetails,
 
 };

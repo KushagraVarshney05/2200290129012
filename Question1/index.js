@@ -11,7 +11,7 @@ app.use(express.json());
 
 const db = require('./config/db');
 const { getCompany, insertCompany } = require('./controller/company');
-const { getProducts,
+const { getProducts,getProductDetails,
     
     getTopProducts,  } = require('./controller/product');
 
@@ -23,5 +23,5 @@ app.listen(port, () => {
     }
     );
 app.get('/company', getCompany).post('/company', insertCompany);
-app.get('/products', getProducts).get('/getProductsTop', getTopProducts);
+app.get('/products', getProducts).get('/getProductsTop', getTopProducts).get('/product/:id', getProductDetails);
 
